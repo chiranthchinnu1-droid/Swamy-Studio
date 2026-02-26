@@ -1,24 +1,17 @@
-/* 1. GLOBAL RESET & FONTS */
-html, body {
+body {
     margin: 0;
-    padding: 0;
-    overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
     background: #0f0f0f;
     color: white;
 }
 
-/* 2. HEADER & NAVIGATION */
 header {
     position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 20px 50px;
-    background: rgba(0,0,0,0.8);
-    z-index: 1000;
-    box-sizing: border-box;
+    background: rgba(0,0,0,0.7);
 }
 
 .logo {
@@ -31,104 +24,250 @@ nav a {
     color: white;
     margin-left: 20px;
     text-decoration: none;
-    transition: 0.3s;
 }
 
-nav a:hover {
-    color: #d4af37;
-}
-
-/* 3. HERO SECTION (The Big Fix) */
 .hero {
-    position: relative;
+    height: 100vh;   
+}
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+}
+
+.hero-content {
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
+    padding: 20px;
 }
 
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -2;
-}
-
-/* Position the big text behind everything */
-.bg-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(4rem, 15vw, 10rem);
-    font-family: 'Playfair Display', serif;
-    color: rgba(255, 255, 255, 0.08); /* Very faint white */
-    white-space: nowrap;
-    z-index: -1; /* Puts it behind the profile and H2 */
-    pointer-events: none;
-    text-transform: uppercase;
-}
-
-/* Ensure your name and info stay on top */
-.hero-content h2, 
-.hero-content p, 
-.hero-profile {
-    position: relative;
-    z-index: 2;
-}
-
-/* Make the button extra visible */
 .btn {
-    position: relative;
-    z-index: 10;
+    display: inline-block;
+    white-space: nowrap;    /* Prevents the word 'Contact' from jumping to a second line */
     background: #d4af37;
-    color: #000;
+    color: #000 !important;
+    padding: 12px 30px;     /* Gives enough 'breathable' space around the text */
     font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
     letter-spacing: 1px;
+    border-radius: 5px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}}
-
-/* 6. OTHER SECTIONS */
+    
+    /* Alignment Fix */
+    text-align: center;
+    min-width: 160px;       /* Ensures the button has a solid base width */
+    box-sizing: border-box; /* Includes padding in the width calculation */
+}
 section {
     padding: 80px 10%;
     text-align: center;
 }
 
-#contact {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-/* 7. WHATSAPP & MOBILE */
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #d4af37;
+    color: black;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background: #111;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: 0.4s ease;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+}
+.video-section video {
+    width: 80%;
+    border-radius: 10px;
+}
+
 .whatsapp {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 20px;
+    right: 20px;
     background: #25D366;
-    padding: 18px;
+    padding: 15px;
     border-radius: 50%;
     color: white;
-    z-index: 999;
+    text-decoration: none;
+
+}
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    section {
+    padding: 60px 20px;
+}
+
+#contact h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    word-wrap: break-word;
 }
 
 @media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-        flex-direction: row; /* Keep logo and nav side by side */
+    #contact h2 {
+        font-size: 26px;
     }
-    .hero-content h2 { font-size: 1.8rem; }
-    .hero-profile { width: 120px; height: 120px; }
 }
 
+    .video-section iframe {
+        width: 100%;
+        height: 220px;
+    }
+}
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-profile {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+.hero-profile {
+    transition: 0.4s ease;
+}
+
+.hero-profile:hover {
+    transform: scale(1.08);
+}
+/* Fix overflow globally */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Fix contact section width */
+#contact {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 60px 20px;
+}
+
+#contact h2 {
+    text-align: center;
+    font-size: 32px;
+    margin: 0 auto 30px auto;
+    max-width: 100%;
+}
+/* HERO SECTION */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+}
+
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh; /* smaller on mobile */
+    }
+}
+/* Prevent horizontal overflow everywhere */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Contact section full control */
+#contact {
+    width: 100vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* Contact heading fix */
+#contact h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
