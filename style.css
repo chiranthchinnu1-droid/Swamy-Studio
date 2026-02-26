@@ -64,82 +64,39 @@ nav a:hover {
     z-index: -2;
 }
 
-.hero-overlay {
+/* Position the big text behind everything */
+.bg-text {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adjust darkness here */
-    z-index: -1;
-}
-
-/* 4. HERO CONTENT LAYERING */
-.hero-content {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Background Large Text */
-.hero-content h1 {
-    position: absolute;
-    font-size: clamp(4rem, 12vw, 8rem);
-    opacity: 0.15; /* Keeps it very subtle behind everything */
-    z-index: -1;
-    text-transform: uppercase;
-    white-space: nowrap;
-    margin: 0;
-    pointer-events: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: clamp(4rem, 15vw, 10rem);
+    font-family: 'Playfair Display', serif;
+    color: rgba(255, 255, 255, 0.08); /* Very faint white */
+    white-space: nowrap;
+    z-index: -1; /* Puts it behind the profile and H2 */
+    pointer-events: none;
+    text-transform: uppercase;
 }
 
+/* Ensure your name and info stay on top */
+.hero-content h2, 
+.hero-content p, 
 .hero-profile {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
-    margin-bottom: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transition: 0.4s ease;
+    position: relative;
+    z-index: 2;
 }
 
-.hero-profile:hover {
-    transform: scale(1.1);
-}
-
-.hero-content h2 {
-    font-size: 2.5rem;
-    margin: 10px 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-}
-
-/* 5. BUTTONS & CONTACT */
+/* Make the button extra visible */
 .btn {
+    position: relative;
+    z-index: 10;
     background: #d4af37;
     color: #000;
-    padding: 15px 40px;
-    font-weight: 800;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 50px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    transition: 0.3s ease;
-    margin-top: 20px;
-    display: inline-block;
-}
-
-.btn:hover {
-    background: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-}
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}}
 
 /* 6. OTHER SECTIONS */
 section {
@@ -174,3 +131,4 @@ section {
     .hero-content h2 { font-size: 1.8rem; }
     .hero-profile { width: 120px; height: 120px; }
 }
+
