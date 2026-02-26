@@ -27,7 +27,7 @@ nav a {
 }
 
 .hero {
-    height: 100vh;   /* was 100vh */
+    height: 100vh;   
 }
 .hero-video {
     position: absolute;
@@ -232,19 +232,6 @@ body {
     height: 80vh;
 }
 
-/* Background Video */
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -1;
-}
 
 /* Mobile Adjustment */
 @media (max-width: 768px) {
@@ -274,43 +261,8 @@ html, body {
     font-size: 32px;
     margin-bottom: 30px;
 }
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: 70vh;   /* use min-height instead of height */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-}
 
-/* Background video */
-.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -1;
-}
 
-/* Hero content */
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-}
-@media (max-width: 768px) {
-    .hero {
-        min-height: 60vh;
-        padding: 60px 15px;
-    }
-}
 
 
 
