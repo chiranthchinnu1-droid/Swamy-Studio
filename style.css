@@ -27,44 +27,62 @@ nav a {
 }
 
 .hero {
-    height: 100vh;   
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Changed back to 100vh for full screen impact */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Important to clip video edges */
 }
+
 .hero-video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%); /* Centers the video perfectly */
     object-fit: cover;
     z-index: -2;
 }
 
 .hero-overlay {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.5); /* Adjust 0.5 to make bg darker or lighter */
     z-index: -1;
 }
-
-.hero-content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+.hero-content h1 {
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.8);
 }
 
 .btn {
     background: #d4af37;
-    padding: 10px 25px;
-    color: black;
+    padding: 12px 30px;
+    color: #000; /* Keep text black for contrast */
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Adds depth */
 }
 
+.btn:hover {
+    background: transparent;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    transform: translateY(-3px);
+}
 section {
     padding: 80px 10%;
     text-align: center;
@@ -261,6 +279,7 @@ html, body {
     font-size: 32px;
     margin-bottom: 30px;
 }
+
 
 
 
