@@ -27,29 +27,37 @@ nav a {
 }
 
 .hero {
-    height: 100vh;
     position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.hero video {
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
+    z-index: -2;
 }
 
-.overlay {
-    background: rgba(0,0,0,0.6);
+.hero-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
 }
 
 .hero-content {
-    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
+    padding: 20px;
 }
 
 .btn {
@@ -119,4 +127,43 @@ section {
     border-radius: 50%;
     color: white;
     text-decoration: none;
+
+}
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        margin: 10px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        height: 220px;
+    }
 }
